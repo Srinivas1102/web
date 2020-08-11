@@ -25,9 +25,7 @@
 </head>
 
 <body>
-var ref = firebase.database().ref();                           ref.on("value", function(snapshot){
-    output.innerHTML = JSON.stringify(snapshot.val(), null, 2);
-});
+
 	<div class="main-area center-text" style="background-image:url(images/countdown-3-1600x900.jpg);">
 
 		<div class="display-table">
@@ -47,5 +45,10 @@ var ref = firebase.database().ref();                           ref.on("value", f
 	</div><!-- main-area -->
 
 </body>
-
+<script>
+  firebase.database().ref('data').on('value',(snap)=>{
+    var totalRecord =  snap.numChildren();
+    console.log("Total Record : "+totalRecord);
+  });
+</script>
 </html>
